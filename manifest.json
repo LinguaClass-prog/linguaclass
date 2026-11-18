@@ -1,0 +1,35 @@
+{
+  "name": "LinguaClass — английский по классам",
+  "short_name": "LinguaClass",
+  "description": "Английский язык для 5–11 классов в формате коротких игровых уроков: слова, фразы, аудирование, XP и серии дней.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#58cc02",
+  "categories": ["education", "kids"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
