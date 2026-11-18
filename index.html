@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>LinguaClass — английский по классам</title>
+    <meta
+      name="description"
+      content="Изучение английского языка в игровой форме для 5–11 классов: короткие уроки, слова, аудирование, XP и серии дней."
+    />
+    <meta name="theme-color" content="#58cc02" />
+    <meta name="color-scheme" content="light" />
+
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icons/favicon.png" sizes="64x64" type="image/png" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="LinguaClass" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="modal-root"></div>
+
+    <noscript>
+      <p style="padding: 24px; font-family: sans-serif">
+        Для работы LinguaClass нужен JavaScript.
+      </p>
+    </noscript>
+
+    <script>
+      // Диагностика для мобильных браузеров: показываем ошибку на экране,
+      // иначе на iPhone виден только белый экран.
+      (function () {
+        var shown = false;
+        function show(msg) {
+          if (shown) return;
+          shown = true;
+          try {
+            var box = document.createElement("div");
+            box.setAttribute("role", "alert");
+            box.style.cssText =
+              "position:fixed;left:0;right:0;bottom:0;z-index:99999;max-height:45vh;" +
+              "overflow:auto;margin:0;padding:12px 14px calc(12px + env(safe-area-inset-bottom));" +
+              "background:#fff1f0;color:#8a1c1c;border-top:2px solid #ff4b4b;" +
+              "font:13px/1.45 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;" +
+              "white-space:pre-wrap;word-break:break-word;";
+            box.textContent = "Ошибка LinguaClass:\n" + msg;
+            (document.body || document.documentElement).appendChild(box);
+          } catch (e) {}
+        }
+        window.addEventListener(
+          "error",
+          function (e) {
+            var t = e.target;
+            if (t && t !== window && (t.tagName === "SCRIPT" || t.tagName === "LINK")) {
+              show("не загрузился файл " + (t.src || t.href));
+              return;
+            }
+            show(
+              (e.message || "неизвестная ошибка") +
+                (e.filename ? "\n" + e.filename + ":" + (e.lineno || 0) : "")
+            );
+          },
+          true
+        );
+        window.addEventListener("unhandledrejection", function (e) {
+          var r = e.reason;
+          show("Promise: " + ((r && (r.message || r)) || "неизвестно"));
+        });
+      })();
+    </script>
+    <script src="content.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
