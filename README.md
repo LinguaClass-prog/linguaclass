@@ -10,11 +10,11 @@ Google Play), в том числе **офлайн**.
 
 ## 🌐 Постоянный адрес
 
-**https://matthewgolovlev-tech.github.io/linguaclass/**
+**https://linguaclass-prog.github.io/linguaclass/**
 
 Сайт размещён на GitHub Pages: HTTPS, работает 24/7, компьютер держать
 включённым не нужно. Репозиторий:
-https://github.com/matthewgolovlev-tech/linguaclass
+https://github.com/LinguaClass-prog/linguaclass
 
 ### Как установить на телефон
 
