@@ -50,6 +50,15 @@
 
   const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
+  /* Лис-маскот: единый вид реплик */
+  function foxRow(text, opts = {}) {
+    const mood = opts.mood ? ` ${opts.mood}` : "";
+    return `<div class="fox-row">
+      <div class="fox-emoji${mood}">🦊</div>
+      <div class="bubble">${text}</div>
+    </div>`;
+  }
+
   function norm(s) {
     return String(s)
       .toLowerCase()
@@ -117,6 +126,7 @@
       dailyDay: null,
       goal: 20,
       perfect: 0,
+      theme: "auto",
       done: {}
     };
   }
@@ -145,6 +155,39 @@
       /* приватный режим */
     }
   };
+
+  /* =========================================================
+     Тема оформления
+     ========================================================= */
+  const DARK_BG = "#121518";
+  const LIGHT_BG = "#58cc02";
+
+  const prefersDark = () =>
+    !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+  function isDarkTheme() {
+    const mode = state.theme || "auto";
+    return mode === "dark" || (mode === "auto" && prefersDark());
+  }
+
+  function applyTheme() {
+    const dark = isDarkTheme();
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+    const meta = document.getElementById("themeColorMeta");
+    if (meta) meta.setAttribute("content", dark ? DARK_BG : LIGHT_BG);
+  }
+
+  function setTheme(mode) {
+    state.theme = mode;
+    save();
+    applyTheme();
+  }
+
+  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").addEventListener) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+      if ((state.theme || "auto") === "auto") applyTheme();
+    });
+  }
 
   function syncHearts() {
     if (state.hearts >= HEART_MAX) {
@@ -725,6 +768,8 @@
           <p class="brand-sub">Английский по школьной программе — короткими уроками, как в игре.</p>
         </div>
 
+        ${foxRow("Я лис-учитель. Выбери класс — и начнём!")}
+
         <div class="onboard-block">
           <h2 class="h2">Выбери свой класс</h2>
           <p class="muted">Программа и сложность подстроятся под тебя.</p>
@@ -789,6 +834,24 @@
 
     const lessonsDone = Object.keys(state.done).length;
     const level = Math.floor(state.xp / 120) + 1;
+    const nextLesson = flatLessons(cls).find((x) => !state.done[x.id]);
+
+    let foxSays;
+    if (dailyPct >= 100) {
+      foxSays = "Цель дня закрыта! Лис гордится тобой 🎉";
+    } else if (state.hearts <= 0) {
+      foxSays = "Сердца на нуле — отдохни немного, лис подождёт 💤";
+    } else if (lessonsDone === 0) {
+      foxSays = "Привет! Я лис. Поехали, первый урок уже ждёт 👇";
+    } else if (state.streak >= 3) {
+      foxSays = `Серия ${state.streak} дней — лис в восторге 🔥`;
+    } else if (nextLesson) {
+      foxSays = `До цели ${Math.max(0, goal - state.dailyXp)} XP. Дальше тема «${esc(
+        nextLesson.unit.title
+      )}»`;
+    } else {
+      foxSays = "Все уроки пройдены! Лис советует повторить любимый юнит 🏆";
+    }
 
     app.innerHTML = `
       <div class="page">
@@ -819,18 +882,7 @@
           </div>
         </section>
 
-        <div class="mascot-row">
-          <div class="mascot">🦊</div>
-          <div class="bubble">${
-            dailyPct >= 100
-              ? "Цель дня выполнена! Ты молодец 🎉"
-              : lessonsDone === 0
-              ? "Поехали! Первый урок ждёт тебя 👇"
-              : "Продолжай в том же духе — до цели осталось " +
-                Math.max(0, goal - state.dailyXp) +
-                " XP"
-          }</div>
-        </div>
+        ${foxRow(foxSays, { mood: dailyPct >= 100 ? "happy" : "" })}
 
         ${cls.units
           .map((unit, u) => {
@@ -875,7 +927,7 @@
           .join("")}
 
         <div class="home-footer">
-          <span class="tiny muted">LinguaClass · v1.0 · прогресс хранится на устройстве</span>
+          <span class="tiny muted">LinguaClass · v1.3 · прогресс хранится на устройстве</span>
         </div>
       </div>
 
@@ -1193,7 +1245,10 @@
         <div class="feedback ${ok ? "ok" : "bad"}">
           <div class="fb-head">
             <span class="fb-icon">${ok ? "✓" : "✕"}</span>
-            <span class="fb-title">${ok ? pick(["Верно!", "Отлично!", "Так держать!"]) : "Не совсем"}</span>
+            <span class="fb-title">${
+              ok ? pick(["Верно!", "Отлично!", "Лис доволен!"]) : pick(["Не совсем", "Почти!", "Лис подскажет"])
+            }</span>
+            <span class="fb-fox ${ok ? "happy" : "sad"}">🦊</span>
           </div>
           <div class="fb-body">
             ${
@@ -1555,6 +1610,14 @@
             .join("")}
         </div>
 
+        <p class="fox-note"><span class="fox-emoji ${r.stars === 3 ? "happy" : ""}">🦊</span> ${
+          r.stars === 3
+            ? "Идеально! Лис аплодирует."
+            : r.acc >= 70
+            ? "Хорошо! Лис довольно кивает."
+            : "Ничего страшного — лис тоже учился постепенно."
+        }</p>
+
         <div class="result-grid">
           <div class="result-card"><span class="rc-num">+${r.xp}</span><span class="rc-label">XP</span></div>
           <div class="result-card"><span class="rc-num">${r.acc}%</span><span class="rc-label">Точность</span></div>
@@ -1592,6 +1655,9 @@
         <div class="hearts-big">
           <span>💔</span>
         </div>
+        ${foxRow("Сердца закончились. Подождём вместе — скоро восстановится.", {
+          mood: "sad"
+        })}
         <h1 class="h1 center">Сердца закончились</h1>
         <p class="muted center">Сердце восстанавливается каждые 5 минут.<br/>Следующее — через ${heartTimerText() || "5:00"}.</p>
         <div class="hearts-slots">${Array.from({ length: HEART_MAX })
@@ -1667,7 +1733,13 @@
           (n, u) => n + u.vocab.length,
           0
         )}. Нажми 🔊, чтобы услышать произношение.</p>
-        ${unitsHtml || `<p class="muted center" style="padding:32px 0">Ничего не найдено</p>`}
+        ${
+          unitsHtml ||
+          `<div class="fox-empty">
+             <div class="fox-emoji">🦊</div>
+             <p>Лис обыскал весь словарь, но ничего не нашёл.<br/>Попробуй другое слово.</p>
+           </div>`
+        }
       </div>
       ${bottomNav("dict")}`;
 
@@ -1740,6 +1812,11 @@
     const levelXp = state.xp % 120;
     const achs = achievements();
     const initial = (state.name || "Я").trim().charAt(0).toUpperCase();
+    const totalLessons = cls.units.length * KINDS.length;
+    const doneInClass = flatLessons(cls).filter((x) => state.done[x.id]).length;
+    const coursePct = totalLessons
+      ? Math.round((doneInClass / totalLessons) * 100)
+      : 0;
 
     app.innerHTML = `
       <div class="page">
@@ -1758,6 +1835,15 @@
           </div>
           <div class="level-bar"><span style="width:${(levelXp / 120) * 100}%"></span></div>
         </section>
+
+        ${foxRow(
+          coursePct >= 100
+            ? "Весь курс пройден! Лис снимает шляпу 🎩"
+            : `Курс пройден на ${coursePct}%. ${
+                coursePct >= 50 ? "Лис впечатлён!" : "Лис верит в тебя!"
+              }`,
+          { mood: coursePct >= 50 ? "happy" : "" }
+        )}
 
         <div class="stat-grid">
           <div class="stat-card"><span class="sc-num">${state.xp}</span><span class="sc-label">Всего XP</span></div>
@@ -1793,6 +1879,10 @@
             <span class="setting-label">🔔 Звуковые эффекты</span>
             <span class="switch ${state.sound ? "on" : ""}"><i></i></span>
           </button>
+          <button class="setting-row" id="toggleTheme">
+            <span class="setting-label">🌙 Тёмная тема</span>
+            <span class="switch ${isDarkTheme() ? "on" : ""}"><i></i></span>
+          </button>
           <button class="setting-row" id="resetAll">
             <span class="setting-label">🗑 Сбросить весь прогресс</span>
             <span class="chev">›</span>
@@ -1808,6 +1898,11 @@
     $("#toggleSound").addEventListener("click", () => {
       state.sound = !state.sound;
       save();
+      renderProfile();
+    });
+    $("#toggleTheme").addEventListener("click", () => {
+      setTheme(isDarkTheme() ? "light" : "dark");
+      sfx("tap");
       renderProfile();
     });
     $("#resetAll").addEventListener("click", () => {
@@ -1863,6 +1958,7 @@
   };
 
   function init() {
+    applyTheme();
     syncHearts();
     if (!state.onboarded) {
       screen = "onboarding";
