@@ -1,5 +1,5 @@
 /* LinguaClass — учебный контент: 5–11 классы.
-   Каждый класс: 3 юнита. В юните словарь (vocab) и фразы (sentences).
+   Каждый класс: 5 юнитов. В юните словарь (vocab) и фразы (sentences).
    Из этого пула приложение собирает 4 урока на юнит. */
 
 const CURRICULUM = [
@@ -86,6 +86,56 @@ const CURRICULUM = [
           { en: "The bird is in the tree.", ru: "Птица на дереве." },
           { en: "We drink tea every morning.", ru: "Мы пьём чай каждое утро." }
         ]
+      },
+      {
+        title: "Мой дом",
+        emoji: "🏠",
+        grammar: "There is / There are, предлоги места",
+        vocab: [
+          ["house", "дом"],
+          ["room", "комната"],
+          ["table", "стол"],
+          ["bed", "кровать"],
+          ["window", "окно"],
+          ["door", "дверь"],
+          ["kitchen", "кухня"],
+          ["garden", "сад"],
+          ["big", "большой"],
+          ["small", "маленький"]
+        ],
+        sentences: [
+          { en: "There is a table in my room.", ru: "В моей комнате есть стол." },
+          { en: "My bed is near the window.", ru: "Моя кровать у окна." },
+          { en: "There are two chairs in the kitchen.", ru: "На кухне два стула." },
+          { en: "The garden is behind the house.", ru: "Сад за домом." },
+          { en: "Is there a door in the room?", ru: "В комнате есть дверь?" },
+          { en: "Our flat is not very big.", ru: "Наша квартира не очень большая." }
+        ]
+      },
+      {
+        title: "Погода и времена года",
+        emoji: "☀️",
+        grammar: "It is + погода, глагол can",
+        vocab: [
+          ["weather", "погода"],
+          ["sunny", "солнечный"],
+          ["rainy", "дождливый"],
+          ["cold", "холодный"],
+          ["hot", "жаркий"],
+          ["wind", "ветер"],
+          ["snow", "снег"],
+          ["spring", "весна"],
+          ["summer", "лето"],
+          ["winter", "зима"]
+        ],
+        sentences: [
+          { en: "It is sunny today.", ru: "Сегодня солнечно." },
+          { en: "In winter it is cold and snowy.", ru: "Зимой холодно и снежно." },
+          { en: "I can swim in summer.", ru: "Летом я умею плавать." },
+          { en: "It is raining now.", ru: "Сейчас идёт дождь." },
+          { en: "The wind is strong in autumn.", ru: "Осенью ветер сильный." },
+          { en: "We like to play in the snow.", ru: "Мы любим играть в снегу." }
+        ]
       }
     ]
   },
@@ -169,6 +219,56 @@ const CURRICULUM = [
           { en: "He cannot dance.", ru: "Он не умеет танцевать." },
           { en: "They listened to music yesterday.", ru: "Вчера они слушали музыку." },
           { en: "My hobby is drawing.", ru: "Моё хобби — рисование." }
+        ]
+      },
+      {
+        title: "Одежда и покупки",
+        emoji: "👕",
+        grammar: "this / these, How much…?",
+        vocab: [
+          ["clothes", "одежда"],
+          ["shirt", "рубашка"],
+          ["shoes", "обувь"],
+          ["dress", "платье"],
+          ["hat", "шапка"],
+          ["jacket", "куртка"],
+          ["price", "цена"],
+          ["money", "деньги"],
+          ["cheap", "дешёвый"],
+          ["expensive", "дорогой"]
+        ],
+        sentences: [
+          { en: "How much is this shirt?", ru: "Сколько стоит эта рубашка?" },
+          { en: "These shoes are very expensive.", ru: "Эта обувь очень дорогая." },
+          { en: "I want to buy a new jacket.", ru: "Я хочу купить новую куртку." },
+          { en: "The price is too high.", ru: "Цена слишком высокая." },
+          { en: "This hat is cheap.", ru: "Эта шапка дешёвая." },
+          { en: "She has got enough money.", ru: "У неё достаточно денег." }
+        ]
+      },
+      {
+        title: "Путешествия",
+        emoji: "✈️",
+        grammar: "going to, will",
+        vocab: [
+          ["trip", "поездка"],
+          ["train", "поезд"],
+          ["plane", "самолёт"],
+          ["ticket", "билет"],
+          ["city", "город"],
+          ["map", "карта"],
+          ["hotel", "отель"],
+          ["visit", "посещать"],
+          ["travel", "путешествовать"],
+          ["interesting", "интересный"]
+        ],
+        sentences: [
+          { en: "We are going to visit London.", ru: "Мы собираемся посетить Лондон." },
+          { en: "I will buy the tickets tomorrow.", ru: "Я куплю билеты завтра." },
+          { en: "The train leaves at seven.", ru: "Поезд отправляется в семь." },
+          { en: "Our hotel is in the city centre.", ru: "Наш отель в центре города." },
+          { en: "Do you like to travel by plane?", ru: "Ты любишь путешествовать самолётом?" },
+          { en: "The trip was very interesting.", ru: "Поездка была очень интересной." }
         ]
       }
     ]
@@ -254,6 +354,56 @@ const CURRICULUM = [
           { en: "Engineers need good experience.", ru: "Инженерам нужен хороший опыт." },
           { en: "The office is near the station.", ru: "Офис рядом со станцией." }
         ]
+      },
+      {
+        title: "Школа и учёба",
+        emoji: "📖",
+        grammar: "must / have to, Present Perfect",
+        vocab: [
+          ["subject", "предмет"],
+          ["exam", "экзамен"],
+          ["mark", "оценка"],
+          ["answer", "ответ"],
+          ["question", "вопрос"],
+          ["learn", "учить"],
+          ["explain", "объяснять"],
+          ["difficult", "трудный"],
+          ["easy", "лёгкий"],
+          ["prepare", "готовиться"]
+        ],
+        sentences: [
+          { en: "I have already done my homework.", ru: "Я уже сделал домашнюю работу." },
+          { en: "You must be on time for the lesson.", ru: "Ты должен приходить на урок вовремя." },
+          { en: "She has not passed the exam yet.", ru: "Она ещё не сдала экзамен." },
+          { en: "This subject is difficult but interesting.", ru: "Этот предмет трудный, но интересный." },
+          { en: "Can you explain the rule again?", ru: "Можешь объяснить правило ещё раз?" },
+          { en: "We have to prepare for the test.", ru: "Нам нужно готовиться к контрольной." }
+        ]
+      },
+      {
+        title: "Праздники и традиции",
+        emoji: "🎉",
+        grammar: "Present Perfect: just / already / yet",
+        vocab: [
+          ["holiday", "праздник"],
+          ["gift", "подарок"],
+          ["party", "вечеринка"],
+          ["candle", "свеча"],
+          ["cake", "торт"],
+          ["invite", "приглашать"],
+          ["celebrate", "праздновать"],
+          ["tradition", "традиция"],
+          ["special", "особенный"],
+          ["together", "вместе"]
+        ],
+        sentences: [
+          { en: "We have just decorated the room.", ru: "Мы только что украсили комнату." },
+          { en: "She has already bought a gift.", ru: "Она уже купила подарок." },
+          { en: "They have not arrived yet.", ru: "Они ещё не приехали." },
+          { en: "We always celebrate the holiday together.", ru: "Мы всегда празднуем праздник вместе." },
+          { en: "This tradition is very special for us.", ru: "Эта традиция очень важна для нас." },
+          { en: "I want to invite all my friends.", ru: "Я хочу пригласить всех друзей." }
+        ]
       }
     ]
   },
@@ -337,6 +487,56 @@ const CURRICULUM = [
           { en: "The guide told us about ancient traditions.", ru: "Гид рассказал нам о древних традициях." },
           { en: "If it rains, we will stay at home.", ru: "Если пойдёт дождь, мы останемся дома." },
           { en: "I have never been abroad.", ru: "Я никогда не был за границей." }
+        ]
+      },
+      {
+        title: "Здоровье и спорт",
+        emoji: "🏃",
+        grammar: "should / ought to, условные предложения",
+        vocab: [
+          ["health", "здоровье"],
+          ["exercise", "упражнение"],
+          ["diet", "питание"],
+          ["sleep", "сон"],
+          ["energy", "энергия"],
+          ["stress", "стресс"],
+          ["injury", "травма"],
+          ["train", "тренироваться"],
+          ["fit", "в хорошей форме"],
+          ["recover", "восстанавливаться"]
+        ],
+        sentences: [
+          { en: "If you exercise, you will feel better.", ru: "Если будешь тренироваться, будешь чувствовать себя лучше." },
+          { en: "You should sleep at least eight hours.", ru: "Тебе следует спать не меньше восьми часов." },
+          { en: "A healthy diet gives you energy.", ru: "Здоровое питание даёт энергию." },
+          { en: "He has recovered from his injury.", ru: "Он восстановился после травмы." },
+          { en: "Stress can be dangerous for your health.", ru: "Стресс может быть опасен для здоровья." },
+          { en: "Athletes train every day to stay fit.", ru: "Спортсмены тренируются каждый день, чтобы быть в форме." }
+        ]
+      },
+      {
+        title: "Природа и климат",
+        emoji: "🌿",
+        grammar: "First Conditional, because / so",
+        vocab: [
+          ["nature", "природа"],
+          ["forest", "лес"],
+          ["river", "река"],
+          ["mountain", "гора"],
+          ["climate", "климат"],
+          ["pollution", "загрязнение"],
+          ["protect", "защищать"],
+          ["wildlife", "дикая природа"],
+          ["storm", "буря"],
+          ["dry", "сухой"]
+        ],
+        sentences: [
+          { en: "If we protect forests, wildlife will survive.", ru: "Если мы защитим леса, дикая природа выживет." },
+          { en: "Pollution is a serious problem for nature.", ru: "Загрязнение — серьёзная проблема для природы." },
+          { en: "The climate is changing very fast.", ru: "Климат меняется очень быстро." },
+          { en: "We should not throw rubbish into the river.", ru: "Нельзя бросать мусор в реку." },
+          { en: "A storm destroyed many trees in the forest.", ru: "Буря уничтожила много деревьев в лесу." },
+          { en: "The summer was hot and dry.", ru: "Лето было жарким и сухим." }
         ]
       }
     ]
@@ -422,6 +622,56 @@ const CURRICULUM = [
           { en: "The government should fight poverty.", ru: "Правительство должно бороться с бедностью." },
           { en: "Equality is important for a fair society.", ru: "Равенство важно для справедливого общества." }
         ]
+      },
+      {
+        title: "Технологии и будущее",
+        emoji: "🤖",
+        grammar: "Future forms, модальные глаголы вероятности",
+        vocab: [
+          ["device", "устройство"],
+          ["network", "сеть"],
+          ["data", "данные"],
+          ["screen", "экран"],
+          ["application", "приложение"],
+          ["improve", "улучшать"],
+          ["invent", "изобретать"],
+          ["digital", "цифровой"],
+          ["automatic", "автоматический"],
+          ["connect", "подключать"]
+        ],
+        sentences: [
+          { en: "Technology will change the way we learn.", ru: "Технологии изменят то, как мы учимся." },
+          { en: "This device can connect to the network.", ru: "Это устройство может подключаться к сети." },
+          { en: "Digital data is stored in the cloud.", ru: "Цифровые данные хранятся в облаке." },
+          { en: "Scientists may invent new energy sources.", ru: "Учёные могут изобрести новые источники энергии." },
+          { en: "The application has been improved.", ru: "Приложение было улучшено." },
+          { en: "Automatic systems are used everywhere.", ru: "Автоматические системы используются повсюду." }
+        ]
+      },
+      {
+        title: "Искусство и кино",
+        emoji: "🎬",
+        grammar: "Passive voice, relative clauses",
+        vocab: [
+          ["art", "искусство"],
+          ["music", "музыка"],
+          ["painting", "картина"],
+          ["novel", "роман"],
+          ["film", "фильм"],
+          ["actor", "актёр"],
+          ["audience", "зрители"],
+          ["create", "создавать"],
+          ["talented", "талантливый"],
+          ["exhibition", "выставка"]
+        ],
+        sentences: [
+          { en: "The novel was written in 1920.", ru: "Роман был написан в 1920 году." },
+          { en: "This painting is shown in the museum.", ru: "Эта картина выставлена в музее." },
+          { en: "The film, which won an award, is very moving.", ru: "Фильм, получивший награду, очень трогательный." },
+          { en: "A talented actor played the main role.", ru: "Талантливый актёр сыграл главную роль." },
+          { en: "The audience applauded for ten minutes.", ru: "Зрители аплодировали десять минут." },
+          { en: "An exhibition of modern art opens today.", ru: "Сегодня открывается выставка современного искусства." }
+        ]
       }
     ]
   },
@@ -506,6 +756,56 @@ const CURRICULUM = [
           { en: "Natural resources are not unlimited.", ru: "Природные ресурсы не бесконечны." },
           { en: "This problem cannot be solved alone.", ru: "Эту проблему нельзя решить в одиночку." }
         ]
+      },
+      {
+        title: "Наука и открытия",
+        emoji: "🔬",
+        grammar: "Passive, причастия",
+        vocab: [
+          ["research", "исследование"],
+          ["experiment", "эксперимент"],
+          ["discover", "открывать"],
+          ["proof", "доказательство"],
+          ["theory", "теория"],
+          ["develop", "разрабатывать"],
+          ["invention", "изобретение"],
+          ["laboratory", "лаборатория"],
+          ["result", "результат"],
+          ["scientific", "научный"]
+        ],
+        sentences: [
+          { en: "The experiment was carried out last week.", ru: "Эксперимент был проведён на прошлой неделе." },
+          { en: "This theory has been proved by many studies.", ru: "Эта теория доказана многими исследованиями." },
+          { en: "Scientists are developing a new vaccine.", ru: "Учёные разрабатывают новую вакцину." },
+          { en: "The results of the research were surprising.", ru: "Результаты исследования были неожиданными." },
+          { en: "A great invention can change the world.", ru: "Великое изобретение может изменить мир." },
+          { en: "Scientific methods require careful work.", ru: "Научные методы требуют тщательной работы." }
+        ]
+      },
+      {
+        title: "СМИ и информация",
+        emoji: "📰",
+        grammar: "Reported speech, Passive",
+        vocab: [
+          ["media", "СМИ"],
+          ["news", "новости"],
+          ["article", "статья"],
+          ["report", "репортаж"],
+          ["source", "источник"],
+          ["interview", "интервью"],
+          ["broadcast", "трансляция"],
+          ["publish", "публиковать"],
+          ["reliable", "надёжный"],
+          ["influence", "влияние"]
+        ],
+        sentences: [
+          { en: "The article has been published online.", ru: "Статья была опубликована онлайн." },
+          { en: "The journalist said that the news was true.", ru: "Журналист сказал, что новость правдива." },
+          { en: "It is important to check your sources.", ru: "Важно проверять свои источники." },
+          { en: "The interview was broadcast yesterday.", ru: "Интервью транслировали вчера." },
+          { en: "Social media has a huge influence on us.", ru: "Соцсети оказывают на нас огромное влияние." },
+          { en: "A reliable report must contain facts.", ru: "Надёжный репортаж должен содержать факты." }
+        ]
       }
     ]
   },
@@ -589,6 +889,56 @@ const CURRICULUM = [
           { en: "However, the results were not persuasive.", ru: "Однако результаты были неубедительными." },
           { en: "I suggest that we discuss the benefits first.", ru: "Я предлагаю сначала обсудить плюсы." },
           { en: "It is hard to convince people without evidence.", ru: "Трудно убедить людей без доказательств." }
+        ]
+      },
+      {
+        title: "Глобальные проблемы",
+        emoji: "🌐",
+        grammar: "Conditionals II–III, инверсия",
+        vocab: [
+          ["poverty", "бедность"],
+          ["inequality", "неравенство"],
+          ["conflict", "конфликт"],
+          ["solution", "решение"],
+          ["sustainable", "устойчивый"],
+          ["global", "глобальный"],
+          ["crisis", "кризис"],
+          ["cooperation", "сотрудничество"],
+          ["reduce", "сокращать"],
+          ["aware", "осознающий"]
+        ],
+        sentences: [
+          { en: "If countries cooperated, many crises could be prevented.", ru: "Если бы страны сотрудничали, многих кризисов можно было бы избежать." },
+          { en: "Global warming is a threat to sustainable development.", ru: "Глобальное потепление угрожает устойчивому развитию." },
+          { en: "Poverty and inequality must be reduced.", ru: "Бедность и неравенство должны быть сокращены." },
+          { en: "Never has cooperation been so important.", ru: "Никогда сотрудничество не было таким важным." },
+          { en: "The world is facing an economic crisis.", ru: "Мир сталкивается с экономическим кризисом." },
+          { en: "People should be more aware of global problems.", ru: "Людям следует лучше осознавать глобальные проблемы." }
+        ]
+      },
+      {
+        title: "Цели и личный рост",
+        emoji: "🎯",
+        grammar: "Future Perfect, герундий и инфинитив",
+        vocab: [
+          ["goal", "цель"],
+          ["motivation", "мотивация"],
+          ["discipline", "дисциплина"],
+          ["achieve", "достигать"],
+          ["progress", "прогресс"],
+          ["challenge", "вызов"],
+          ["ambition", "амбиция"],
+          ["effort", "усилие"],
+          ["determination", "решимость"],
+          ["overcome", "преодолевать"]
+        ],
+        sentences: [
+          { en: "By next year I will have finished school.", ru: "К следующему году я закончу школу." },
+          { en: "Achieving a goal requires discipline and determination.", ru: "Достижение цели требует дисциплины и решимости." },
+          { en: "She has made great progress this term.", ru: "Она добилась большого прогресса в этой четверти." },
+          { en: "Every challenge is a chance to grow.", ru: "Каждый вызов — шанс вырасти." },
+          { en: "It is important to keep your motivation high.", ru: "Важно поддерживать высокую мотивацию." },
+          { en: "He managed to overcome many difficulties.", ru: "Он смог преодолеть много трудностей." }
         ]
       }
     ]
