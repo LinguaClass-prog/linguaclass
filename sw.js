@@ -1,5 +1,5 @@
-/* LinguaClass — сервис-воркер: офлайн-работа приложения */
-const VERSION = "linguaclass-v1.2.0";
+﻿/* LinguaClass — сервис-воркер: офлайн-работа приложения */
+const VERSION = "linguaclass-v1.3.0";
 const SHELL = [
   "./",
   "./index.html",
