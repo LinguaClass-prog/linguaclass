@@ -11,8 +11,28 @@
       name="description"
       content="Изучение английского языка в игровой форме для 5–11 классов: короткие уроки, слова, аудирование, XP и серии дней."
     />
-    <meta name="theme-color" content="#58cc02" />
-    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" id="themeColorMeta" content="#58cc02" />
+    <meta name="color-scheme" content="light dark" />
+
+    <script>
+      // Тема применяется до первой отрисовки, чтобы не было белой вспышки
+      (function () {
+        try {
+          var raw = localStorage.getItem("linguaclass.v1");
+          var saved = raw ? JSON.parse(raw) : null;
+          var mode = (saved && saved.theme) || "auto";
+          var dark =
+            mode === "dark" ||
+            (mode === "auto" &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.dataset.theme = dark ? "dark" : "light";
+          var meta = document.getElementById("themeColorMeta");
+          if (meta) meta.setAttribute("content", dark ? "#121518" : "#58cc02");
+        } catch (e) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
 
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" href="icons/favicon.png" sizes="64x64" type="image/png" />
